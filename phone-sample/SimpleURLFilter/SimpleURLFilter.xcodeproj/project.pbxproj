@@ -63,11 +63,11 @@
 		525E6E9F1B50302F818FE703 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		B14DDF342DA041A400A263B8 /* SimpleURLFilterExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SimpleURLFilterExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14DDF362DA041A400A263B8 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
-		E10000002DA041A400A263B8 /* LiveCallerIDLookupExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LiveCallerIDLookupExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		E10000042DA041A400A263B8 /* IdentityLookup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IdentityLookup.framework; path = System/Library/Frameworks/IdentityLookup.framework; sourceTree = SDKROOT; };
 		B6179BB21458EEA4C6461FA1 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = ../Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		DBB7D44D2E25AEDF0038F338 /* SwiftBloomFilter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftBloomFilter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB89FAC2D9B557E00073A41 /* SimpleURLFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleURLFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10000002DA041A400A263B8 /* LiveCallerIDLookupExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LiveCallerIDLookupExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E10000042DA041A400A263B8 /* IdentityLookup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IdentityLookup.framework; path = System/Library/Frameworks/IdentityLookup.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -89,7 +89,6 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				LiveCallerIDLookupExtension.entitlements,
 			);
 			target = E10000052DA041A400A263B8 /* LiveCallerIDLookupExtension */;
 		};
@@ -117,7 +116,7 @@
 			exceptions = (
 				E10000072DA041A400A263B8 /* Exceptions for "LiveCallerID" folder in "LiveCallerIDLookupExtension" target */,
 			);
-			path = ../LiveCallerID;
+			path = LiveCallerID;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -132,6 +131,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DBB89FA92D9B557E00073A41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E10000092DA041A400A263B8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -140,16 +146,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DBB89FA92D9B557E00073A41 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72DDBDCA300841F200D3A20B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				E10000042DA041A400A263B8 /* IdentityLookup.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		B14DDF352DA041A400A263B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +186,7 @@
 				DBB89FAD2D9B557E00073A41 /* Products */,
 				FCF03E813E522BA99408D12E /* Configuration */,
 				D40DA4594FF30C188098F45A /* LICENSE */,
+				72DDBDCA300841F200D3A20B /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,26 +232,6 @@
 			productReference = B14DDF342DA041A400A263B8 /* SimpleURLFilterExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		E10000052DA041A400A263B8 /* LiveCallerIDLookupExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E10000102DA041A400A263B8 /* Build configuration list for PBXNativeTarget "LiveCallerIDLookupExtension" */;
-			buildPhases = (
-				E100000B2DA041A400A263B8 /* Sources */,
-				E10000092DA041A400A263B8 /* Frameworks */,
-				E100000C2DA041A400A263B8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				E10000082DA041A400A263B8 /* LiveCallerID */,
-			);
-			name = LiveCallerIDLookupExtension;
-			productName = LiveCallerIDLookupExtension;
-			productReference = E10000002DA041A400A263B8 /* LiveCallerIDLookupExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		DBB89FAB2D9B557E00073A41 /* SimpleURLFilter */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBB89FBA2D9B557F00073A41 /* Build configuration list for PBXNativeTarget "SimpleURLFilter" */;
@@ -266,6 +254,26 @@
 			productName = SimpleURLFilter;
 			productReference = DBB89FAC2D9B557E00073A41 /* SimpleURLFilter.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E10000052DA041A400A263B8 /* LiveCallerIDLookupExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E10000102DA041A400A263B8 /* Build configuration list for PBXNativeTarget "LiveCallerIDLookupExtension" */;
+			buildPhases = (
+				E100000B2DA041A400A263B8 /* Sources */,
+				E10000092DA041A400A263B8 /* Frameworks */,
+				E100000C2DA041A400A263B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				E10000082DA041A400A263B8 /* LiveCallerID */,
+			);
+			name = LiveCallerIDLookupExtension;
+			productName = LiveCallerIDLookupExtension;
+			productReference = E10000002DA041A400A263B8 /* LiveCallerIDLookupExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -448,44 +456,6 @@
 			};
 			name = Release;
 		};
-		E10000112DA041A400A263B8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6179BB21458EEA4C6461FA1 /* SampleCode.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ../LiveCallerID/LiveCallerIDLookupExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5TKVHWTT79;
-				INFOPLIST_FILE = ../LiveCallerID/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleURLFilter${SAMPLE_CODE_DISAMBIGUATOR}.LiveCallerIDExtension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		E10000122DA041A400A263B8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6179BB21458EEA4C6461FA1 /* SampleCode.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = ../LiveCallerID/LiveCallerIDLookupExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5TKVHWTT79;
-				INFOPLIST_FILE = ../LiveCallerID/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleURLFilter${SAMPLE_CODE_DISAMBIGUATOR}.LiveCallerIDExtension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		DBB89FB82D9B557F00073A41 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B6179BB21458EEA4C6461FA1 /* SampleCode.xcconfig */;
@@ -623,7 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SimpleURLFilter/Preview Content\"";
-				DEVELOPMENT_TEAM = 5TKVHWTT79;
+				DEVELOPMENT_TEAM = 8HL478VV5P;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -668,7 +638,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SimpleURLFilter/Preview Content\"";
-				DEVELOPMENT_TEAM = 5TKVHWTT79;
+				DEVELOPMENT_TEAM = 8HL478VV5P;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -697,6 +667,46 @@
 			};
 			name = Release;
 		};
+		E10000112DA041A400A263B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6179BB21458EEA4C6461FA1 /* SampleCode.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = LiveCallerID/LiveCallerIDLookupExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5TKVHWTT79;
+				INFOPLIST_FILE = LiveCallerID/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleURLFilter${SAMPLE_CODE_DISAMBIGUATOR}.LiveCallerIDExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E10000122DA041A400A263B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6179BB21458EEA4C6461FA1 /* SampleCode.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = LiveCallerID/LiveCallerIDLookupExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5TKVHWTT79;
+				INFOPLIST_FILE = LiveCallerID/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.SimpleURLFilter${SAMPLE_CODE_DISAMBIGUATOR}.LiveCallerIDExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -705,15 +715,6 @@
 			buildConfigurations = (
 				B14DDF422DA041A400A263B8 /* Debug */,
 				B14DDF432DA041A400A263B8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E10000102DA041A400A263B8 /* Build configuration list for PBXNativeTarget "LiveCallerIDLookupExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E10000112DA041A400A263B8 /* Debug */,
-				E10000122DA041A400A263B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -732,6 +733,15 @@
 			buildConfigurations = (
 				DBB89FBB2D9B557F00073A41 /* Debug */,
 				DBB89FBC2D9B557F00073A41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E10000102DA041A400A263B8 /* Build configuration list for PBXNativeTarget "LiveCallerIDLookupExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E10000112DA041A400A263B8 /* Debug */,
+				E10000122DA041A400A263B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
