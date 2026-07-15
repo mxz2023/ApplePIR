@@ -21,7 +21,7 @@ identities {
   value {
     name: "13132133622 Test Caller"
     cache_expiry_minutes: 5
-    block: false
+    block: true
     category: IDENTITY_CATEGORY_PERSON
   }
 }
