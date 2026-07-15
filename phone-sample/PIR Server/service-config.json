@@ -14,6 +14,16 @@
       "fileStem": "url",
       "shardCount": 1,
       "name": "com.example.apple-samplecode.SimpleURLFilter5TKVHWTT79.url.filtering"
+    },
+    {
+      "fileStem": "block",
+      "shardCount": 1,
+      "name": "com.example.apple-samplecode.SimpleURLFilter5TKVHWTT79.LiveCallerIDExtension.block"
+    },
+    {
+      "fileStem": "identity",
+      "shardCount": 1,
+      "name": "com.example.apple-samplecode.SimpleURLFilter5TKVHWTT79.LiveCallerIDExtension.identity"
     }
   ]
 }

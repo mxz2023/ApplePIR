@@ -1,0 +1,30 @@
+encryption_parameters {
+  polynomial_degree: 4096
+  plaintext_modulus: 17
+  coefficient_moduli: [134176769, 268369921, 268361729]
+  security_level: SECURITY_LEVEL_QUANTUM128
+  he_scheme: HE_SCHEME_BFV
+}
+num_entries: 1
+entry_size: 70
+dimensions: [1, 1]
+keyword_pir_params {
+  num_hash_functions: 2
+  sharding_function {
+    sha256 {
+    }
+  }
+}
+algorithm: PIR_ALGORITHM_MUL_PIR
+batch_size: 2
+evaluation_key_config {
+  encryption_parameters {
+    polynomial_degree: 4096
+    plaintext_modulus: 17
+    coefficient_moduli: [134176769, 268369921, 268361729]
+    security_level: SECURITY_LEVEL_QUANTUM128
+    he_scheme: HE_SCHEME_BFV
+  }
+  galois_elements: [2049, 4097]
+  has_relin_key: true
+}
