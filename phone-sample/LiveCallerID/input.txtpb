@@ -16,3 +16,12 @@ identities {
     category: IDENTITY_CATEGORY_BUSINESS
   }
 }
+identities {
+  key: "+8613132133622"
+  value {
+    name: "13132133622 Test Caller"
+    cache_expiry_minutes: 5
+    block: false
+    category: IDENTITY_CATEGORY_PERSON
+  }
+}
