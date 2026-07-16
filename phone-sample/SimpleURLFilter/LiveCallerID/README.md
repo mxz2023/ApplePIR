@@ -7,6 +7,7 @@ The test numbers are:
 - `+14085551212`: identity `Johnny Appleseed`, not blocked.
 - `+8613812345678`: identity `Local PIR Test Caller`, blocked.
 - `+8613132133622`: identity `13132133622 Test Caller`, blocked.
+- `+8618911696930`: identity `18911696930 Test Caller`, blocked.
 
 Replace the second number with the real caller number used for your test call. Keep the number in E.164 format.
 

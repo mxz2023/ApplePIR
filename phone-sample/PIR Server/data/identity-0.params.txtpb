@@ -6,7 +6,7 @@ encryption_parameters {
   he_scheme: HE_SCHEME_BFV
 }
 num_entries: 1
-entry_size: 109
+entry_size: 148
 dimensions: [1, 1]
 keyword_pir_params {
   num_hash_functions: 2
