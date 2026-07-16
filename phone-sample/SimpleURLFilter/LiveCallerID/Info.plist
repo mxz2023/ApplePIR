@@ -23,7 +23,7 @@
 	<key>EXAppExtensionAttributes</key>
 	<dict>
 		<key>EXExtensionPointIdentifier</key>
-		<string>com.apple.identitylookup.call-directory</string>
+		<string>com.apple.live-lookup</string>
 	</dict>
 	<key>NSExtension</key>
 	<dict>
