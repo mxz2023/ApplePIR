@@ -8,6 +8,14 @@ The main interface with the NEURLFilterManager API for the SimpleURLFilter appli
 import Foundation
 import NetworkExtension
 import OSLog
+#if os(iOS)
+import IdentityLookup
+#endif
+
+private enum LiveCallerIDSharedConfiguration {
+    static let appGroupIdentifier = "group.com.jdjr.samplecode.SwiftBloomFilter"
+    static let pirServerURLKey = "liveCallerID.pirServerURL"
+}
 
 // The model class instance holds a reference to the current configuration and
 // filter status. The app uses the model to interface with the underlying system
@@ -35,6 +43,7 @@ class ConfigurationModel {
         try await sharedFilterManager.loadFromPreferences()
         let configuration = exportConfiguration()
         currentConfiguration = configuration
+        synchronizeLiveCallerIDConfiguration(configuration)
         log.debug("Loaded current configuration: \(configuration.debugDescription)")
     }
 
@@ -66,6 +75,11 @@ class ConfigurationModel {
             // No need to report this as an error to the user, so just log it.
             log.debug("Configuration unchanged.")
         }
+
+        synchronizeLiveCallerIDConfiguration(configuration)
+#if os(iOS)
+        await refreshLiveCallerIDExtensionContext()
+#endif
     }
 
     public func removeCurrentConfiguration() async throws {
@@ -155,6 +169,38 @@ class ConfigurationModel {
 
         return id
     }
+
+    /// The Live Caller ID extension runs in a separate process and cannot read
+    /// NEURLFilterManager preferences directly. Mirror the two endpoint URLs to
+    /// the app group's UserDefaults so both extensions follow the settings page.
+    private func synchronizeLiveCallerIDConfiguration(_ configuration: Configuration) {
+        guard let defaults = UserDefaults(suiteName: LiveCallerIDSharedConfiguration.appGroupIdentifier) else {
+            log.error("Unable to open Live Caller ID app-group defaults.")
+            return
+        }
+
+        defaults.set(
+            configuration.pirServerURL?.absoluteString,
+            forKey: LiveCallerIDSharedConfiguration.pirServerURLKey)
+    }
+
+#if os(iOS)
+    /// Ask the system to re-read the extension context after the shared URL changes.
+    /// A refresh failure must not roll back the already-saved URL filter settings.
+    private func refreshLiveCallerIDExtensionContext() async {
+        guard let identifier = Bundle.findLiveCallerIDLookupExtensionBundleID() else {
+            log.error("Unable to find the Live Caller ID extension bundle.")
+            return
+        }
+
+        do {
+            try await LiveCallerIDLookupManager.shared.refreshExtensionContext(
+                forExtensionWithIdentifier: identifier)
+        } catch {
+            log.error("Unable to refresh Live Caller ID extension context: \(error.localizedDescription)")
+        }
+    }
+#endif
 
 }
 

@@ -22,6 +22,15 @@ extension Bundle {
                </dict>
          */
 
+        findExtensionBundleID(extensionPointIdentifier: "com.apple.networkextension.url-filter-control")
+    }
+
+    /// Locate the Live Caller ID extension bundled with the app.
+    static func findLiveCallerIDLookupExtensionBundleID() -> String? {
+        findExtensionBundleID(extensionPointIdentifier: "com.apple.live-lookup")
+    }
+
+    private static func findExtensionBundleID(extensionPointIdentifier expectedIdentifier: String) -> String? {
         let enumerator = FileManager.default.enumerator(at: Bundle.main.bundleURL, includingPropertiesForKeys: [.nameKey])
         while let url = enumerator?.nextObject() as? URL {
             let name = (try? url.resourceValues(forKeys: [.nameKey]))?.name ?? ""
@@ -29,7 +38,7 @@ extension Bundle {
                 guard let bundle = Bundle(url: url),
                       let appExtAttrDict = bundle.infoDictionary?["EXAppExtensionAttributes"] as? [String: Any],
                       let extensionPointIdentifier = appExtAttrDict["EXExtensionPointIdentifier"] as? String,
-                      extensionPointIdentifier == "com.apple.networkextension.url-filter-control" else {
+                      extensionPointIdentifier == expectedIdentifier else {
                     continue
                 }
                 return bundle.bundleIdentifier
