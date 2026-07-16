@@ -34,3 +34,12 @@ identities {
     category: IDENTITY_CATEGORY_PERSON
   }
 }
+identities {
+  key: "+8618911693468"
+  value {
+    name: "18911693468 Test Caller"
+    cache_expiry_minutes: 5
+    block: true
+    category: IDENTITY_CATEGORY_PERSON
+  }
+}
